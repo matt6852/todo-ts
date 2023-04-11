@@ -8,13 +8,11 @@ type CreateBookTypeProps = {
 function BookCreate(props: CreateBookTypeProps) {
  const { createBook } = props
  const [title, setTitle] = useState<string>("")
-
  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault()
   createBook(title)
   setTitle("")
  }
-
 
 
  return (

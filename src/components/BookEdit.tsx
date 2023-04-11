@@ -2,25 +2,23 @@ import React, { FormEvent, useState } from 'react'
 import { BooksType } from '../App'
 type BookShowPropsType = {
  book: BooksType
- changeTitle: (id: number, title: string) => void
- handleEdit: () => void
+
+ handleSubmitBook: (id: number, title: string) => void
 }
-const BookEdit: React.FC<BookShowPropsType> = ({ book, changeTitle, handleEdit }) => {
+const BookEdit: React.FC<BookShowPropsType> = ({ book, handleSubmitBook }) => {
  const [value, setValue] = useState(book.title)
  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   setValue(e.target.value)
  }
  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault()
-  changeTitle(book.id, value)
-  handleEdit()
-
+  handleSubmitBook(book.id, value)
  }
  return (
   <div>
-   <form onSubmit={handleSubmit} >
-    <input type="text" value={value} onChange={handleChange} />
-    <button>save</button>
+   <form className='book-edit' onSubmit={handleSubmit} >
+    <input className='input' type="text" value={value} onChange={handleChange} />
+    <button className='button is-primary'>save</button>
    </form>
   </div>
  )

@@ -16,16 +16,28 @@ const BookShow: React.FC<BookShowPropsType> = ({ book, deleteBook, changeTitle }
  const handleEdit = () => {
   setIsEdit(!isEdit)
  }
- let content: string | JSX.Element = book.title
+ const handleSubmit = (id: number, title: string) => {
+  changeTitle(id, title)
+  setIsEdit(false)
+
+ }
+ let content: string | JSX.Element = <h3>{book.title}</h3>
  if (isEdit) {
-  content = <BookEdit changeTitle={changeTitle} book={book} handleEdit={handleEdit} />
+  content = <BookEdit book={book} handleSubmitBook={handleSubmit} />
  }
 
+
  return (
-  <div>
-   <h3>{content}</h3>
-   <button onClick={handleEdit}>edit book</button>
-   <button onClick={handleDeleteBook}>delete book</button>
+  <div className='book-show'>
+   <img src={`https://picsum.photos/seed/${book.id}/300/200`} alt="pic" />
+   <div>
+    {content}
+   </div>
+   <div className='actions'>
+    <button className='edit' onClick={handleEdit}>edit</button>
+    <button className='delete' onClick={handleDeleteBook}>delete book</button>
+   </div>
+
   </div>
  )
 }

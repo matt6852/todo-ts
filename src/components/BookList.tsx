@@ -9,9 +9,15 @@ type BookListProps = {
 function BookList(props: BookListProps) {
  const { books, deleteBook, changeTitle } = props
 
- const renderBooks = books.map((book: BooksType) => <BookShow key={book.id} book={book} deleteBook={deleteBook} changeTitle={changeTitle} />)
+ const renderBooks = books.map((book: BooksType) =>
+  <BookShow
+   key={book.id}
+   book={book}
+   deleteBook={deleteBook}
+   changeTitle={changeTitle}
+  />)
  return (
-  <div>{renderBooks}</div>
+  <div className='book-list'>{renderBooks}</div>
  )
 }
 
