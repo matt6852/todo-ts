@@ -1,12 +1,8 @@
-import { } from "../App"
 import { FormEvent, useState } from 'react'
+import { useMyContexthook } from "../context"
 
-type CreateBookTypeProps = {
- createBook: (title: string) => void
-}
-
-function BookCreate(props: CreateBookTypeProps) {
- const { createBook } = props
+function BookCreate() {
+ const { createBook }: any = useMyContexthook()
  const [title, setTitle] = useState<string>("")
  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault()

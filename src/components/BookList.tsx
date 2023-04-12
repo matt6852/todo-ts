@@ -1,13 +1,10 @@
 import { BooksType, } from '../App'
+import { TodoContextType, useMyContexthook } from '../context'
 import BookShow from './BookShow'
 
-type BookListProps = {
- books: BooksType[],
- deleteBook: (id: number) => void
- changeTitle: (id: number, title: string) => void
-}
-function BookList(props: BookListProps) {
- const { books, deleteBook, changeTitle } = props
+
+function BookList() {
+ const { books, deleteBook, changeTitle } = useMyContexthook() as TodoContextType
 
  const renderBooks = books.map((book: BooksType) =>
   <BookShow
