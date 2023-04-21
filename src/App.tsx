@@ -1,23 +1,16 @@
-import './index.css'
-import BookList from './components/BookList'
-import BookCreate from './components/BookCreate'
-import { TodoContextType, useMyContexthook } from './context'
+import DropDown from "./components/DropDown"
 
-export type BooksType = {
-  title: string,
-  id: number
-}
+
 
 function App() {
-  const { books } = useMyContexthook() as TodoContextType
-  console.log(books);
-
-
+  const items = [
+    { label: "Some label", value: "value1", id: 1 },
+    { label: "Some label 2", value: "value2", id: 2 },
+    { label: "Some label 3", value: "value3", id: 3 }
+  ]
   return (
-    <div className='app'>
-      <h1>list books</h1>
-      <BookList />
-      <BookCreate />
+    <div >
+      <DropDown items={items} />
     </div>
   )
 }
