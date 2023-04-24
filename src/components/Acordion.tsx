@@ -17,8 +17,8 @@ const Acordion: React.FC<AcordionPropsType> = ({ items }) => {
   console.count("count");
   setTimeout(() => {
 
-   // setCounter((oldCounter) => oldCounter + 1)
-   setCounter(counter + 1)
+   setCounter((oldCounter) => oldCounter + 1)
+   // setCounter(counter + 1)
   }, 4000)
 
  }

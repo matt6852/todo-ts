@@ -13,12 +13,11 @@ type OptionType = {
 function DropDown({ items }: PropsType) {
  const [isOpen, setIsOpen] = useState<Boolean>(false)
  const [selected, setSeclected] = useState<OptionType | null>(null)
- const ref = useRef(null)
+ const ref = useRef<HTMLInputElement>(null)
  const closeAndSelect = (item: OptionType) => {
   setSeclected(item)
   setIsOpen(false)
  }
-
  useEffect(() => {
   const handler = (event: Event) => {
    //@ts-ignore
@@ -33,7 +32,7 @@ function DropDown({ items }: PropsType) {
   return <div className="hover:bg-sky-100 rounded cursor-pointer p-1" onClick={() => closeAndSelect(item)} key={item.value}>{item.label}</div>
  })
  return (
-  <div ref={ref} className="my-div">
+  <div ref={ref} >
    <div onClick={() => setIsOpen(!isOpen)}>
     {selected?.label || "Select ..."}
    </div>
