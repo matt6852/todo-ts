@@ -17,7 +17,8 @@ function Link({ to, children, className, activeClassName }: LinkType) {
  }
  const classes = classNames("text-blue-500",
   className,
-  currentPath === to && activeClassName)
+  currentPath === to && activeClassName
+ )
  return (
   <a href={to} className={classes} onClick={handleNavigation}>{children}</a>
  )
