@@ -7,6 +7,7 @@ type SortOrderType = null | "asc" | "desc"
 type SortByType = null | "name" | "score" | string
 const SortableTable = (props: TableProps) => {
  const { config, data } = props
+
  const { sortedData, handleClick, sortBy, sortOrder } = useSortableHook({ data, config })
  const renderIcons = (label: string, sortBy: SortByType, sortOrder: SortOrderType) => {
   if (label !== sortBy) {
