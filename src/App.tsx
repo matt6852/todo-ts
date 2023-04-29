@@ -1,23 +1,38 @@
-import './index.css'
-import BookList from './components/BookList'
-import BookCreate from './components/BookCreate'
-import { TodoContextType, useMyContexthook } from './context'
+import Route from "./components/Route"
+import SideBar from "./navigation/SideBar"
+import AcordionPage from "./pages/AcordionPage"
+import ButtonPage from "./pages/ButtonPage"
+import DropDownPage from "./pages/DropDownPage"
+import ModalPage from "./pages/ModalPage"
+import TablePage from "./pages/TablePage"
 
-export type BooksType = {
-  title: string,
-  id: number
-}
+
 
 function App() {
-  const { books } = useMyContexthook() as TodoContextType
-  console.log(books);
-
 
   return (
-    <div className='app'>
-      <h1>list books</h1>
-      <BookList />
-      <BookCreate />
+    <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
+      <div>
+        <SideBar />
+      </div>
+      <div className="col-span-5">
+        <Route to="/accordion">
+          <AcordionPage />
+        </Route>
+        <Route to="/">
+          <DropDownPage />
+        </Route>
+        <Route to="/buttons">
+          <ButtonPage />
+        </Route>
+        <Route to="/modal">
+          <ModalPage />
+        </Route>
+        <Route to="/table">
+          <TablePage />
+        </Route>
+      </div>
+
     </div>
   )
 }
