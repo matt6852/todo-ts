@@ -1,19 +1,25 @@
+import React, { useEffect } from "react"
 import { RenderType } from "../pages/TablePage"
 
-type SingleItem = {
+export type SingleItem = {
  name: string,
  color: string,
  id: number,
  score: number
 }
-type TableProps = {
- data: SingleItem[], config:
- { label: string, render: (item: RenderType) => any }[]
+export type TableProps = {
+ data: SingleItem[],
+ config: {
+  label: string,
+  render: (item: RenderType) => any,
+  sortValue?: (item: RenderType) => any,
+  header?: () => any
+ }[]
 }
 
 const Table = ({ data, config }: TableProps) => {
-
  const rednderHeaders = config.map((col) => {
+  if (col.header) return <React.Fragment key={col.label}>{col.header()}</React.Fragment>
   return <th key={col.label}>{col.label}</th>
  })
 

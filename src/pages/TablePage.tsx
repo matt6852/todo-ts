@@ -1,8 +1,10 @@
 import React from 'react'
-import Table from '../components/Table'
+import SortableTable from '../components/SortableTable'
 type TableConfigItem = {
  label: string,
- render: (item: RenderType) => string | number | null | JSX.Element | JSX.Element[]
+ render: (item: RenderType) => string | number | null | JSX.Element | JSX.Element[],
+ header?: (item?: RenderType) => string | number | null | JSX.Element | JSX.Element[],
+ sortValue?: (item: RenderType) => string | number | null | JSX.Element | JSX.Element[],
 }
 export type RenderType = {
  name: string,
@@ -22,7 +24,9 @@ const TablePage = () => {
  const config: TableConfigItem[] = [
   {
    label: "name",
-   render: (fruit: RenderType) => fruit.name
+   render: (fruit: RenderType) => fruit.name,
+   sortValue: (fruit: RenderType) => fruit.name
+
   },
   {
    label: "color",
@@ -31,14 +35,15 @@ const TablePage = () => {
   },
   {
    label: "score",
-   render: (fruit: RenderType) => fruit.score
+   render: (fruit: RenderType) => fruit.score,
+   sortValue: (fruit: RenderType) => fruit.score
 
   }
  ]
 
  return (
   <div>
-   <Table data={items} config={config} />
+   <SortableTable data={items} config={config} />
   </div>
  )
 }
