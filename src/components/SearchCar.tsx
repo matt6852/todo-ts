@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 import { changeTerm } from '../store'
 
 const SearchCar = () => {
+ console.log("render search");
+
  const dispatch = useDispatch()
  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
   const value = e.target.value
@@ -14,5 +16,4 @@ const SearchCar = () => {
   </div>
  )
 }
-
-export default SearchCar
+export default React.memo(SearchCar) 
