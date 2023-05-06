@@ -11,7 +11,7 @@ const CreatCar = () => {
   dispatch(changeName(value))
  }
  const handleInpuPrice = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const value = +e.target.value || 0
+  const value = parseInt(e.target.value) || 0
   dispatch(changeCost(value))
  }
  const addNewCar = () => {
@@ -24,7 +24,7 @@ const CreatCar = () => {
  return (
   <div style={{ display: "flex" }}>
    <input type="text" value={name} onChange={handleInputName} placeholder='car name' className='w-30 rounded-md border-2 py-1.5 pl-7 pr-20 text-gray-900 mx-10' />
-   <input type="number" value={cost} onChange={handleInpuPrice} placeholder='price' min={0} className='w-30 rounded-md border-2 py-1.5 pl-7 pr-2 text-gray-900 mx-10' />
+   <input type="number" value={cost || ""} onChange={handleInpuPrice} placeholder='price' min={0} className='w-30 rounded-md border-2 py-1.5 pl-7 pr-2 text-gray-900 mx-10' />
    <Button onClick={addNewCar} secondary rounded>submit</Button>
   </div>
  )
