@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux'
 import { changeTerm } from '../store'
 
 const SearchCar = () => {
- console.log("render search");
-
  const dispatch = useDispatch()
  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
   const value = e.target.value
