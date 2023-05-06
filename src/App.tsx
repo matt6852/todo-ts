@@ -2,6 +2,7 @@ import Route from "./components/Route"
 import SideBar from "./navigation/SideBar"
 import AcordionPage from "./pages/AcordionPage"
 import ButtonPage from "./pages/ButtonPage"
+import CarsPage from "./pages/CarsPage"
 import CounterPage from "./pages/CounterPage"
 import DropDownPage from "./pages/DropDownPage"
 import ModalPage from "./pages/ModalPage"
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route to="/counter">
           <CounterPage />
+        </Route>
+        <Route to="/cars">
+          <CarsPage />
         </Route>
       </div>
 

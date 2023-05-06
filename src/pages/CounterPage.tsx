@@ -15,7 +15,6 @@ const countReducer = (state: any, action: any) => {
  if (action.type === "set") {
   return { ...state, addValue: action.payload }
  }
-
  return state
 }
 const countState = {
