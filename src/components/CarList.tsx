@@ -14,7 +14,7 @@ const CarList = () => {
  }
  const renderCars = carList.filter((car) => serchTerm ? car.name.includes(serchTerm) : car).map((car) => {
   return <div key={car.id} style={{ display: "flex", justifyContent: "space-between", padding: 5, alignItems: "center" }}>
-   <div style={{ border: car.name === name ? "solid red 2px" : "" }} >Car name: {car.name} , price: {car.cost}</div>
+   <div style={{ border: car.name === name ? "solid red 2px" : "" }} >Car name: {car.name} , price: {car.cost}$</div>
    <Button onClick={() => dispatch(removeCar(car.id!))} rounded danger>delet</Button>
   </div>
  })

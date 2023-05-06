@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { addCar } from './actions';
 
 
 export interface CarState {
@@ -21,6 +22,13 @@ const carSlice = createSlice({
   changeCost(state,action:PayloadAction<number>){
    state.cost = action.payload
   }
+ },
+ extraReducers(builder){
+  builder.addCase(addCar,(state,action)=>{
+   state.name =""
+   state.cost =0
+  })
+
  }
 })
 

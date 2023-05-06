@@ -17,8 +17,6 @@ const CreatCar = () => {
  const addNewCar = () => {
   if (name && cost) {
    dispatch(addCar({ name, cost }))
-   dispatch(changeName(''))
-   dispatch(changeCost(0))
   }
  }
  return (

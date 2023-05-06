@@ -19,7 +19,7 @@ const initialState: CarListState = {
 }
 
 const carSlice = createSlice({
- name:"car",
+ name:"carList",
  initialState,
  reducers:{
   addCar(state,action:PayloadAction<CatType>){
@@ -33,17 +33,18 @@ const carSlice = createSlice({
   removeCar(state,action:PayloadAction<string>){
    const removeCars = state.carList.filter(car =>car.id !==action.payload)
    const price =removeCars.reduce((acc,cur)=> acc+cur.cost,0)
-   return{
-    ...state,
-    carList:removeCars,
-    totlaPrice: price
-   }
+   state.carList =removeCars,
+   state.totlaPrice = price
+   
   },
   changeTerm(state,action:PayloadAction<string>){
+   const carsPrice = action.payload? state.carList.filter(car =>car.name.includes(action.payload)).reduce((acc,cur)=> acc+cur.cost,0) :state.carList.reduce((acc,cur)=>acc+cur.cost,0)
    state.serchTerm = action.payload
-  
+   state.totlaPrice =carsPrice
   }
- }
+ },
+
+ 
 })
 
 export const {changeTerm,removeCar,addCar}  = carSlice.actions
