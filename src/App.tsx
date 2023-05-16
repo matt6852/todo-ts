@@ -7,6 +7,9 @@ import CounterPage from "./pages/CounterPage"
 import DropDownPage from "./pages/DropDownPage"
 import ModalPage from "./pages/ModalPage"
 import TablePage from "./pages/TablePage"
+import UsersPage from "./pages/UsersPage"
+import PokeTable from "./pages/TablePagePoks"
+import Query from "./pages/Query"
 
 
 
@@ -38,6 +41,17 @@ function App() {
         </Route>
         <Route to="/cars">
           <CarsPage />
+        </Route>
+        <Route to="/users">
+          <UsersPage />
+        </Route>
+        <Route to="/poks">
+
+          <PokeTable />
+        </Route>
+        <Route to="/query">
+
+          <Query />
         </Route>
       </div>
 

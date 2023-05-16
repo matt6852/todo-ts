@@ -10,21 +10,21 @@ export interface CarState {
 const initialState: CarState = {
  name: "",
  cost:0
-}
+} 
 
 const carSlice = createSlice({
  name:"car",
- initialState,
- reducers:{
+ initialState,   
+ reducers:{ 
   changeName(state,action:PayloadAction<string>){
    state.name = action.payload
   },
-  changeCost(state,action:PayloadAction<number>){
+  changeCost(state,action:PayloadAction<number>){ 
    state.cost = action.payload
   }
  },
- extraReducers(builder){
-  builder.addCase(addCar,(state,action)=>{
+ extraReducers(builder){   
+  builder.addCase(addCar,(state)=>{
    state.name =""
    state.cost =0
   })
