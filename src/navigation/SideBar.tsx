@@ -11,7 +11,8 @@ function SideBar() {
   { label: "Cars", path: "/cars" },
   { label: "Users", path: "/users" },
   { label: "Poks", path: "/poks" },
-  { label: "Query", path: "/query" }
+  { label: "Query", path: "/query" },
+  { label: "Unsplash", path: "/unsplash" }
  ]
 
  const renderLinks = links.map((link) => <Link activeClassName="font-bold border-l-4 border-blue-500 pl-2" className="mb-3" key={link.label} to={link.path}>{link.label}</Link>)

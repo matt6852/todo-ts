@@ -10,6 +10,7 @@ import TablePage from "./pages/TablePage"
 import UsersPage from "./pages/UsersPage"
 import PokeTable from "./pages/TablePagePoks"
 import Query from "./pages/Query"
+import UnsplashPage from "./pages/UnsplashPage"
 
 
 
@@ -50,8 +51,10 @@ function App() {
           <PokeTable />
         </Route>
         <Route to="/query">
-
           <Query />
+        </Route>
+        <Route to="/unsplash">
+          <UnsplashPage />
         </Route>
       </div>
 

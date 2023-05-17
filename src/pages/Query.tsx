@@ -5,17 +5,10 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 
 
 const Query = () => {
- const queryClient = new QueryClient()
-
-
-
 
  return (
-  <QueryClientProvider client={queryClient}>
-   <App />
-   <ReactQueryDevtools initialIsOpen={false} />
+  <App />
 
-  </QueryClientProvider>
  )
 }
 
@@ -23,6 +16,9 @@ export default Query
 
 
 const App = () => {
+ // console.log(import.meta.env.VITE_SOME_KEY, "ENV");
+ // console.log(import.meta.env.VITE_SOME_SECRET_KEY, "VITE_SOME_SECRET_KEY");
+
  const queryClient = useQueryClient()
  const { data, isLoading, isError, error } = useQuery('blogs', API.getAllBlogs)
  const { mutate: createBlog, error: createBlogError } = useMutation(API.createBlog, {
